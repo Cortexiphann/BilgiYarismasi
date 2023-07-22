@@ -1,6 +1,6 @@
-# Tahmin Yarışması
+# Bilgi Yarışması
 
-Bu Python projesi, kullanıcının rastgele soruları cevaplayarak istatistiklerini takip ettiği basit bir tahmin yarışmasıdır.
+Bu Python projesi, kullanıcının rastgele soruları cevaplayarak istatistiklerini takip ettiği basit bir bilgi yarışmasıdır.
 
 ## Nasıl Çalışır?
 
