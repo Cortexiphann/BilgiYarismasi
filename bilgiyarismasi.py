@@ -1,10 +1,9 @@
-#FurkanFilikci
 import tkinter as tk
 import random
 from tkinter import messagebox
 
 def get_sorular():
-    sorular = [
+    sorular = [ 
         {
             "soru": "Bir bilgisayarın ana belleğine ne denir?",
             "cevap": "ram",
@@ -17,7 +16,7 @@ def get_sorular():
         },
         {
             "soru": "Bir bilgisayar ağında iki cihazın doğrudan bağlanması için kullanılan kablo türü nedir?",
-            "cevap": "ethernet",
+            "cevap": "cross-over kablo,crossover,crossover kablo",
             "ipucu": "Birbirine bağlanan cihazların doğrudan veri alışverişi yapmasını sağlayan kablo türü."
         },
         {
@@ -37,7 +36,7 @@ def get_sorular():
         },
         {
             "soru": "Bir bilgisayar ağında veri iletimi ve yönlendirmeyi sağlayan protokol hangisidir?",
-            "cevap": "tcp/ip",
+            "cevap": "tcp/ip,tcp ip",
             "ipucu": "Bir ağdaki cihazların birbirleriyle veri alışverişi yapabilmelerini sağlayan protokol."
         },
         {
@@ -52,11 +51,22 @@ def get_sorular():
         },
         {
             "soru": "Bir bilgisayarın ana kartı üzerinde bulunan ve diğer bileşenleri birleştiren bileşen nedir?",
-            "cevap": "ana kart",
+            "cevap": "ana kart,anakart",
             "ipucu": "Bir bilgisayarın tüm bileşenlerini bir arada tutan ve veri iletişimini sağlayan bileşen."
+        },
+        {
+            "soru": "Bir bilgisayar ağında cihazların benzersiz kimlik numaralarını içeren, fiziksel bağlantıyı tanımlayan adres türü nedir?",
+            "cevap": "MAC adresi,mac adresi",
+            "ipucu": "Ağ cihazlarının ağ kartlarına atanmış, benzersiz fiziksel adres."
+        },
+        {
+            "soru": "Bir bilgisayarın ağ bağlantısını kablosuz olarak sağlamak için kullanılan teknoloji nedir?",
+            "cevap": "Wi-Fi,wifi,wi-fi",
+            "ipucu": "Kablosuz ağ bağlantısı sağlayan standart ve teknoloji."
         }
-    ]
+    ]   
     return sorular
+
 
 def soru_sor():
     global suanki_soru, dogru_cevap_gosterildi
@@ -87,7 +97,8 @@ def soru_sor():
 def cevabi_kontrol_et():
     global dogru_cevap_gosterildi, dogru_cevaplar, yanlis_cevaplar
     kullanici_cevap = entry.get().strip().lower()
-    if kullanici_cevap == suanki_soru["cevap"]:
+    dogru_cevaplar_listesi = suanki_soru["cevap"].split(',')
+    if kullanici_cevap in dogru_cevaplar_listesi:
         if not dogru_cevap_gosterildi:
             soru_etiketi.config(text="Doğru cevap!", fg="green")
             dogru_cevap_gosterildi = True
@@ -101,7 +112,7 @@ def cevabi_kontrol_et():
 
 def soruyu_gec():
     global suanki_soru, bos_cevaplar
-    soru_etiketi.config(text="Pas geçilen sorunun cevabı: " + suanki_soru["cevap"], fg="blue")
+    soru_etiketi.config(text="Pas geçilen sorunun cevapı: " + suanki_soru["cevap"], fg="blue")
     bos_cevaplar += 1
     app.after(1500, soru_sor)
 
